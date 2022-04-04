@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 2 Exercises</h1>
+</body>
+<script>
+    // Level 1
+    let challenge = '30 Days Of Javascript';
+    console.log(challenge);
+    let l = challenge.length;
+    console.log(`Length of variable is ${l}`);
+    console.log(challenge.toUpperCase());
+    console.log(challenge.toLowerCase());
+    console.log(challenge.substring(0,3)+challenge.substring(8));
+    console.log(challenge.substring(0,3));
+    console.log(challenge.includes("Script"));
+    const ar = challenge.split("");
+    console.log(ar);
+    const arSpace = challenge.split(" ");
+    console.log(arSpace);
+    let company = 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon';
+    const comArr = company.split(",");
+    console.log(comArr);
+    console.log(challenge.replace('Javascript','Python'));
+    console.log(challenge.charAt(15));
+    console.log(challenge.charCodeAt(11));
+    console.log(challenge.indexOf('a')); 
+    console.log(challenge.lastIndexOf('a'));
+    let because = 'You cannot end a sentence with because because because is a conjunction';
+    console.log(because.indexOf('because')); 
+    console.log(because.lastIndexOf('because')); 
+    console.log(because.search('because')); 
+    let space =  ' 30 Days Of JavaScript ';
+    console.log(space.trim());
+    console.log(challenge.startsWith('3'));
+    console.log(challenge.endsWith('t'));
+    console.log(challenge.match('a'));
+    let s1 = '30 Days of';
+    let s2 = ' JavaScript';
+    console.log(s1.concat(s2)); 
+    console.log(challenge.repeat(2));
+
+    // Level 2
+    console.log('There is no exercise better for the heart than reaching down and lifting people up.');
+    console.log("Love is not patronizing and charity isn't about pity, it is about love. Charity and love are the same -- with charity you give love, so don't just give money but reach out your hand instead.");
+    let x = '10';
+    let y = 10;
+    console.log(typeof(x) + " " + typeof(y));
+    let numInt = parseInt(x);
+    console.log(typeof(numInt) + " " + typeof(y));
+    let z = '9.8';
+    console.log(typeof(z) + " " + typeof(y));
+    let num = parseFloat(z);
+    console.log(typeof(num) + " " + typeof(y));
+    let s3 = 'python';
+    let s4 = 'jargon';
+    console.log(s3.includes('on'));
+    console.log(s4.includes('on'));
+    let sen = 'I hope this course is not full of jargon.';
+    console.log(sen.includes('jargon'));
+    // to generate random number in a inclusive range
+    // const n = Math.floor(Math.random () * (max-min+1))+min ;
+    const n = Math.floor(Math.random () * 101);
+    console.log(n);
+    const n2 = Math.floor(Math.random () * 51)+50;
+    console.log(n2);
+    const n3 = Math.floor(Math.random () * 256);
+    console.log(n3);
+    // this function creates a random string using characters from given string
+    function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) 
+        result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+    }
+    var rString = randomString(10, 'JavaScript');
+    console.log(rString);
+    console.log('1 1 1 1 1\n2 1 2 4 8\n3 1 3 9 27\n4 1 4 16 64\n5 1 5 25 125');
+    console.log(because.substr(31,23));
+
+    // Level 3
+    let love = 'Love is the best thing in this world. Some found their love and some are still looking for their love.';
+    // using toLowerCase() so that Love will also be counted as love 
+    console.log(love.toLowerCase().split("love").length);
+    let pattern = /because/gi;
+    console.log(because.match(pattern));
+    let salary = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+    // use /\d+/ to get array containing each digit from a string
+    let moneyPattern = /\d+/g; 
+    console.log(salary.match(moneyPattern));
+    const euro = (salary.match(moneyPattern));
+    var sum=0;
+    for(let i=0;i<euro.length;i++)
+        sum+=parseInt(euro[i]);
+    console.log("Sum of salary is " + sum);
+</script>
+</html>
