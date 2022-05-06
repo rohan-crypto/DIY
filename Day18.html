@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- lodash cdn link -->
+    <script src = "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js">
+    </script>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 18 Exercises</h1>
+</body>
+<script>
+    // Level 1
+
+    const countriesAPI = 'https://restcountries.com/v2/all';
+    fetch(countriesAPI)
+        .then(response => response.json()) // accessing the API data as JSON
+        .then(data => {
+            console.log("\nCountries API");
+            // getting the data
+            console.log(data);
+            // now data is the object which stores all the properties
+
+            function getLang(key){
+                let lang="";
+                for(let i=0; i<data[key].languages.length; i++){
+                    lang+= data[key].languages[i].name+","; 
+                }
+                return lang;
+            }
+
+            for(const key of Object.keys(data)){
+                console.log("Name of country is "+data[key].name+", "+
+                    "Capital is "+data[key].capital+", "+
+                    "Languages used are "+getLang(key)+
+                    " Population is "+data[key].population+" and "+
+                    "Area is "+data[key].area+" sq km");
+            }
+        })
+        //handling error if something wrong happens
+        .catch(error => console.log(error)) 
+    
+    //Level 2 and 3
+
+    const catsAPI = 'https://api.thecatapi.com/v1/breeds';
+    const fetchCatData = async() => {
+        try{
+            console.log("Cat API");
+            const response = await fetch(catsAPI);
+            const data = await response.json();
+            console.log(data);
+
+            for(const key of Object.keys(data)){
+                let catNames = data[key].name;
+                let cw = data[key].weight.metric;
+                let z = Number(cw.charAt(0));
+                let f = Number(cw.charAt(4));
+                let avg = ((z+f)/2);
+                console.log("Cat name is "+catNames+", Average weight range is "+
+                    cw+" metric unit and Average weight is "+avg+
+                    " metric unit");
+            }
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+    fetchCatData();
+
+    //Level 3
+
+    fetch(countriesAPI)
+        .then(response => response.json())
+        .then(data => {
+            console.log("\nCountries API: Sorted array of area of countries");
+            // console.log(data);
+
+            let areaC = [];
+            let top10Area = [];
+            let top10Name = [];
+
+            for(const key of Object.keys(data)){
+                if(data[key].area != undefined)
+                    areaC.push(data[key].area);
+                else
+                    areaC.push(0);
+            }
+
+            // here array.sort() function is failing 
+            // It is because the comparison function does not meet the 
+            // specifications for Array.sort
+            // So I used a compare function to sort array
+            function compare(a, b) {
+                if (a === b)
+                    return 0;
+                return a<b ? -1 : 1;
+            }
+            areaC = areaC.sort(compare);
+            console.log(areaC);
+            
+            console.log("\nTop 10 largest countries by area");
+            for(let i=0;i<10;i++)
+                top10Area.push(areaC[areaC.length-1-i]);
+            console.log(top10Area);
+
+            // Another way to get key from value of object [Needs Checking]
+            // function getKeyByValue(object, value) {
+                // return Object.keys(object).find(key => object[key] === value);
+            // }
+            // console.log(getKeyByValue(data, 17124442));
+
+            // Correct way to get key from value of object
+            // console.log(_.findKey(data,['area',17124442]));
+            // console.log(data[185].name);
+
+            for(let i=0;i<10;i++)
+            {
+                let n = (_.findKey(data,['area',top10Area[i]]));
+                top10Name.push(data[n].name);
+            }
+            console.log(top10Name);
+        })
+        .catch(error => console.log(error)) 
+
+
+    fetch(countriesAPI)
+        .then(response => response.json())
+        .then(data => {
+            console.log("\nTotal number of languages used in the world")
+
+            function getLang(key){
+                let lang="";
+                for(let i=0; i<data[key].languages.length; i++){
+                    lang= data[key].languages[i].name; 
+                }
+                return lang;
+            }
+
+            // if repetition of same language is allowed
+            // let a =[];
+            // let totalLang = 0;
+            // for(const key of Object.keys(data)) {
+            //     a.push(getLang(key));
+            //     totalLang+=data[key].languages.length;
+            // }
+            // console.log(a);
+            // console.log("Total number of languages in the world used "+ 
+            // "as officials are "+totalLang);
+
+            // if repetition of same language is not allowed
+            const langSet = new Set();
+            for(const key of Object.keys(data)) {
+                langSet.add(getLang(key));
+            }
+            console.log(langSet);
+            console.log("Total number of languages in the world used "+ 
+            "as officials are "+langSet.size+".");
+        })
+        .catch(error => console.log(error))
+
+</script>
+</html>
