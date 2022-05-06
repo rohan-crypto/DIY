@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 5 Exercises</h1>
+</body>
+<script>
+    //Level 1
+    const ar = [];
+    console.log(ar);
+    
+    const ar5 = [1,2,3,4,5,6,7];
+    console.log(ar5);
+    
+    let l = ar5.length;
+    console.log(l);
+    
+    console.log('First element is '+ ar5[0]);
+    console.log('Middle element is '+ ar5[parseInt(l/2)]);
+    console.log('Last element is '+ ar5[l-1]);
+
+    const mixedDataTypes = [10,'john',true,9.8,'array',23];
+    console.log(mixedDataTypes.length);
+
+    const itCompanies = ['Facebook','Google','Microsoft','Apple','IBM',
+        'Oracle','Amazon'];
+    
+    console.log(itCompanies);
+    
+    let itL = itCompanies.length;
+    console.log(itL);
+    
+    console.log('First company is '+ itCompanies[0]);
+    console.log('Middle company is '+ itCompanies[parseInt(itL/2)]);
+    console.log('Last company is '+ itCompanies[itL-1]);
+    
+    itCompanies.forEach(function(company) {
+        console.log(company);
+    });
+    
+    itCompanies.forEach(function(company) {
+        console.log(company.toUpperCase());
+    });
+    
+    console.log(itCompanies[0]+','+itCompanies[1]+','+itCompanies[2]+','+
+        itCompanies[3]+','+itCompanies[4]+','+itCompanies[5]+' and '+
+        itCompanies[6]+' are big IT companies');
+    
+    // const checkCompany = prompt('Enter a company name: ');
+    let checkCompany = 'Apple';
+    if(itCompanies.includes(checkCompany))
+        console.log(checkCompany);
+    else
+        console.log('Company not found');
+    
+    // Filter out companies which have more than one 'o' without the filter method
+    let c=0,k=0;
+    const filteredCompanies = [];
+    itCompanies.forEach(function(company) {
+        for(let i=0;i<company.length;i++)
+            if(company.charAt(i)=='o')
+                c++;
+        if(c<=1)
+            filteredCompanies[k++] = company;
+        c=0;
+    })
+    console.log(filteredCompanies);
+
+    // we can copy one array to another array in 2 ways:
+    // 1. Using assignment operator (changes made in one array will affect 
+    // the other array)
+    // 2. Using spread operator (changes made in one array will not affect 
+    // the other array) (better)
+
+    const tempCompanies1 = [];
+    tempCompanies1.push(...itCompanies);
+    // const tempCompanies1 = itCompanies;
+    console.log(tempCompanies1.sort());
+    
+    const tempCompanies2 = [];
+    tempCompanies2.push(...itCompanies);
+    // const tempCompanies2 = itCompanies;
+    console.log(tempCompanies2.reverse());
+
+    console.log(itCompanies.slice(0,4));
+
+    console.log(itCompanies.slice(itL-3));
+
+    const midCompany = parseInt(itL/2);
+    if(itL%2!=0)
+        console.log(itCompanies.slice(midCompany, midCompany+1));
+    else
+        console.log(itCompanies.slice(midCompany-1, midCompany+1));
+    
+    itCompanies.shift();
+    console.log(itCompanies);
+
+    let midCompany2 = parseInt(itCompanies.length/2);
+    if(itCompanies.length%2!=0)
+    {
+        itCompanies.splice(midCompany2, 1);
+        console.log(itCompanies);
+    }
+    else
+    {
+        itCompanies.splice(midCompany2-1, 2);
+        console.log(itCompanies);
+    }
+
+    itCompanies.pop();
+    console.log(itCompanies);
+
+    itCompanies.splice(0,itCompanies.length);
+    console.log(itCompanies);
+
+    // Level 2
+    let text = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.';
+    let sentences = text.split(/[ ,.]+/);
+    // to remove an extra whitespace from the end of array
+    sentences.pop();
+    console.log(sentences);
+    console.log(sentences.length);
+
+    const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey'];
+    if(!shoppingCart.includes('Meat'))
+        shoppingCart.unshift('Meat')
+    console.log(shoppingCart);
+    
+    if(!shoppingCart.includes('Sugar'))
+        shoppingCart.push('Sugar');
+    console.log(shoppingCart);
+    
+    let allergic = true;
+    // let allergic = promt('Enter true/false if allergic to honey: ');
+    let indexH = 0, indexG=0;
+    for(let i=0;i<shoppingCart.length;i++)
+    {
+        if(shoppingCart[i] == 'Honey')
+            indexH=i;
+        if(shoppingCart[i] == 'Tea')
+            indexG=i;
+    }
+    if(allergic)
+        shoppingCart.splice(indexH,1);
+    console.log(shoppingCart);
+
+    shoppingCart[indexG] = 'GreenTea';
+    console.log(shoppingCart);
+
+    const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux'];
+    const backEnd = ['Node','Express', 'MongoDB'];
+    const fullStack = frontEnd.concat(backEnd);
+    console.log(fullStack);
+
+    //Level 3
+    const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+    ages.sort();
+    let min = ages[0];
+    let max = ages[ages.length - 1];
+    console.log("Min age is "+min);
+    console.log("Max age is "+max);
+
+    const midAge = parseInt(ages.length/2);
+    if(ages.length%2!=0)
+        console.log("Middle age "+ages.slice(midAge, midAge+1));
+    else
+        console.log("Middle ages "+ages.slice(midAge-1, midAge+1));
+    
+    let sum=0;
+    ages.forEach(function(age){
+        sum+=age;
+    })
+    let average = sum/ages.length;
+    console.log("Average age is "+parseInt(average));
+
+    console.log("Range of ages is "+ (max-min));
+
+    console.log((Math.abs(min-average))==(Math.abs(max-average)));
+
+    
+</script>
+</html>

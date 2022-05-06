@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 27</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            width: 80%;
+            margin: auto;
+            margin-top: 30px;
+        }
+        h1{
+            font-size: 4rem;
+            font-weight: 400;
+            letter-spacing: 15px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        #banner{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding-left: 12px;
+            height: 90px;
+            background-color: rgb(246, 221, 246);
+            margin-bottom: 20px;
+        }
+        #banner .option {
+            margin-left: 15px;
+            height: 90px;
+            line-height: 90px;
+            overflow: hidden;
+        }
+        .option li {
+            list-style: none;
+            color: gray;
+            font-size: 40px;
+            font-weight: 500;
+            position: relative;
+            top: 0px;
+            animation: slide 12s steps(4) infinite;
+        }
+        @keyframes slide {
+            100% {
+                top: -360px;
+            }
+        }
+        .option li span {
+            position: relative;
+            margin: 5px 0;
+            line-height: 90px;
+        }
+        .option li span::after {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0;
+            height: 120%;
+            width: 100%;
+            background: rgb(246, 221, 246);
+            border-left: 2px solid rgb(246, 221, 246);
+            animation: typing 3s steps(10) infinite;
+        }
+        @keyframes typing {
+            40%,
+            60% {
+                left: calc(100% + 30px);
+            }
+            100% {
+                left: 0;
+            }
+        }
+        #desc{
+            line-height: 25px;
+        }
+        #boxes{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 12px 0px 50px 0px;
+        }
+        #boxes div{
+            width: 23%;
+            border: 1px solid rgb(201, 200, 200);
+            background-color: rgb(255, 252, 252);
+            padding: 50px 50px; 
+            text-align: center;
+            border-radius: 2px;
+            transition: transform 0.55s;
+        }
+        #boxes div:hover{
+            transform: scale(1.1);
+            background-color: rgb(246, 221, 246);
+        }
+        #chspan{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1 style="text-align:center" >Day 27 Exercises</h1> -->
+    <div class="container">
+        <h1>Asabeneh Yetayeh</h1>
+        <div id="banner">
+            <ul class="option">
+                <li><span>🌱Educator</span></li>
+                <li><span>📖 Instructor</span></li>
+                <li><span>📔 Content Creator</span></li>
+                <li><span>🔥 Motivational Speaker</span></li>
+                <li><span>💻 Programmer</span></li>
+            </ul>
+        </div>
+        <p id="desc">
+            I am Asabeneh Yetayeh. I am an educator, developer, motivator and 
+            content creator. Ilove educating people and creating 
+            educational materials. I have created teaching materials
+            like <strong>30Days of Python</strong> and 
+            <strong>30Days of JavaScript</strong>.
+        </p>
+        <div id="boxes">
+            <div>
+                <p>JAVASCRIPT FOR EVERYONE</p>
+            </div>
+            <div>
+                <p>30 DAYS OF PYTHON</p>
+            </div>
+            <div>
+                <p>30 DAYS OF JAVASCRIPT</p>
+            </div>
+        </div>
+        <p id="footer">Technologies I teach 
+            <span id="chspan" onload="change()"></span>
+        </p>
+    </div>
+</body>
+<script>
+    // Level 1
+
+    const tech = ['REACT','MONGODB','JAVASCRIPT','PYTHON','PANDAS','REDUX',
+        'NODE','NUMPY'];
+
+    const colors = ['green', 'red', 'yellow', 'violet', 'blue', 'pink', 
+        'purple', 'gray', 'lightblue', 'skyblue', 'orange', 
+        'lightcoral', 'peachpuff'];
+    
+    function change(){
+        let d = document.getElementById('chspan');
+        d.textContent = tech[Math.floor(Math.random()*tech.length)];
+        d.style.color = colors[Math.floor(Math.random()*colors.length)];
+        setTimeout(function(){
+            change();
+        }, 2000);
+    }
+    change();
+
+</script>
+</html>

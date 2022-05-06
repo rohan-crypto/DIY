@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 6 Exercises</h1>
+</body>
+<script>
+    // Level 1
+
+    // ascending
+    // for(let i=0;i<=10;i++)
+    //     console.log(i);
+
+    // to print output in 1 line we are using string
+    let result  = '';
+    for(let i = 0; i <=10; i++)
+        result = result + i + " ";
+    console.log(result);
+
+    result='';
+    let zero=0;
+    while(zero!=11)
+    {
+        result = result + zero + " "; 
+        zero++;
+    }
+    console.log(result);
+
+    result='';
+    zero=0;
+    do{
+        result = result + zero + " ";
+        zero++;
+    }
+    while(zero!=11);
+    console.log(result);
+
+
+    
+    // descending
+    result  = '';
+    for(let i = 10; i >=0; i--)
+        result = result + i + " ";
+    console.log(result);
+
+    result='';
+    let ten=10;
+    while(ten>=0)
+    {
+        result = result + ten + " "; 
+        ten--;
+    }
+    console.log(result);
+
+    result='';
+    ten=10;
+    do{
+        result = result + ten + " ";
+        ten--;
+    }
+    while(ten>=0);
+    console.log(result);
+
+    // let n = prompt('Enter a number: ');
+    let n = 10;
+    result='';
+    for(let i=0;i<=n;i++)
+        result = result + i + " ";
+    console.log(result);
+
+
+
+    // 3 methods to print left triangle pattern
+
+    // for(let i=1;i<=7;i++)
+        // console.log("*".repeat(i));
+
+    // for(let i="*";i.length<=7;i=i+"*")
+        // console.log(i);
+
+    let string = "";
+    for(let i=1;i<=7;i++)
+    {
+        for(let j=1;j<=i;j++)
+            string+="*";
+        string+='\n';
+    }
+    console.log(string);
+
+    for(let i=0;i<=10;i++)
+        console.log(i+" x "+i+" = "+(i*i));
+
+    for(let i=0;i<=10;i++)
+        console.log(i+"    "+(i*i)+"    "+(i*i*i));
+    
+    let e="";
+    for(let i=0;i<=100;i+=2)
+        e+= i+" ";
+    console.log(e);
+
+    let o="";
+    for(let i=1;i<100;i+=2)
+        o+= i+" ";
+    console.log(o);
+
+    let p="2 ";
+    let flag=true;
+    for(let i=3;i<100;i+=2)
+    {
+        for(let j=2;j<=i/2;j++)
+        {
+            if(i%j == 0)
+            {
+                flag=false;
+                break;
+            }
+        }
+        if(flag)
+            p+= i+" ";
+        flag=true;
+    }
+    console.log(p);
+
+    let s=0;
+    for(let i=0;i<=100;i++)
+        s+=i;
+    console.log('The sum of all numbers from 0 to 100 is '+s+'.');
+
+    let os=0,es=0;
+    for(let i=0;i<=100;i++)
+    {
+        if(i%2==0)
+            es+=i;
+        else
+            os+=i;
+    }
+    console.log('The sum of all evens from 0 to 100 is '+es+'. And the sum of'+ 
+        ' all odds from 0 to 100 is '+os+'.');
+
+    const sa=[];
+    sa.push(es);
+    sa.push(os);
+    console.log(sa);
+
+    // 5 random numbers from 0 to 10
+    let ran = [];
+    for(let i=0;i<5;i++)
+        ran.push(Math.floor(Math.random()*11));
+    console.log(ran);
+
+    // 5 unique random numbers from 0 to 10
+    let uniqueRan = [];
+    while(uniqueRan.length < 5)
+    {
+        let t = Math.floor(Math.random()*11);
+        if(uniqueRan.indexOf(t) == -1)
+            uniqueRan.push(t);
+    }
+    console.log(uniqueRan);
+
+    // this function creates a random string using characters from given string
+    //length of the word formed = length of the given string
+    function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) 
+        result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+    }
+    var rString = randomString(6, '5j2khz');
+    console.log(rString);
+
+    //Level 2
+    // function generates any number of characters from given string
+    // any length of word is formed from the given string
+    function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) 
+        result += chars[Math.floor(Math.random() * chars.length)];
+    return result;
+    }
+    var rString = randomString((Math.floor(Math.random()*13)+1), 'fe3jo1gl124g');
+    var rString2 = randomString((Math.floor(Math.random()*27)+1), 'xkqci4utda1lmbelpkm03rba');
+    console.log(rString);
+    console.log(rString2);
+
+    // A script which generates a random hexadecimal number.
+    let hex = (Math.random() * 0xfffff * 1000000).toString(16);
+    console.log('#' + hex.slice(0, 6));
+
+    // A script which generates a random rgb color number.
+    function random(number){
+        return Math.floor(Math.random()*number);
+    }
+    function randomColor(){
+        return 'rgb('+random(255)+','+random(255)+','+random(255)+')';    
+    }
+    let ranCol = randomColor();
+    console.log(ranCol);
+
+
+    const countries = [
+    'Albania',
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Ireland',
+    'Japan',
+    'Kenya'
+    ];
+    const countriesClone = countries;
+    console.log(countriesClone);
+
+    let countriesLength = [];
+    countries.forEach(function(country) {
+        countriesLength.push(country.length);
+    });
+    console.log(countriesLength);
+
+    let countriesDesc = [], desc=[];
+    for(let i=0;i<countries.length;i++) {
+        desc.push(countries[i]);
+        desc.push(countries[i].substring(0,4).toUpperCase());
+        desc.push(countries[i].length);
+        countriesDesc.push(desc);
+        desc=[];
+    }
+    console.log(countriesDesc);
+
+    let land = [];
+    countries.forEach(function(country) {
+        if(country.includes('land'))
+            land.push(country);
+    })
+    land.length > 0 ? console.log(land) : 
+        console.log('All these countries are without land');
+
+    let ia = [];
+    countries.forEach(function(country) {
+        if(country.endsWith('ia'))
+            ia.push(country);
+    })
+    ia.length > 0 ? console.log(ia) : 
+        console.log('All these countries end without ia');
+    
+    let max = 0, index=0;
+    for(let i=0;i<countries.length;i++)
+    {
+        if(countries[i].length > max)
+        {
+            max = countries[i].length;
+            index = i;
+        }
+    }
+    console.log(countries[index]);
+
+    let char5 =[];
+    countries.forEach(function(country) {
+        if(country.length == 5)
+            char5.push(country);
+    })
+    console.log(char5);
+
+    const webTechs = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Redux',
+    'Node',
+    'MongoDB'
+    ];
+    
+    let m=0, ind=0;
+    for(let i = 0; i < webTechs.length; i++)
+    {
+        if(webTechs[i].length > m)
+        {
+            m = webTechs[i].length;
+            ind= i; 
+        }
+    }
+    console.log(webTechs[ind]);
+
+    let sec = [], ma = [];
+    webTechs.forEach(function(tech){
+        sec.push(tech);
+        sec.push(tech.length);
+        ma.push(sec);
+        sec=[];
+    });
+    console.log(ma);
+    
+    const mernStack = ['MongoDB', 'Express', 'React', 'Node'];
+
+    let ac = "";
+    mernStack.forEach(function(q){
+        ac+=q.charAt(0);
+    });
+    console.log(ac);
+
+    let all="";
+    webTechs.forEach(function(tech){
+        all+=tech+" ";
+    })
+    console.log(all);
+
+    let fruit = ['banana', 'orange', 'mango', 'lemon'];
+    let revFruit = [];
+    for(let i=fruit.length-1; i>=0; i--)
+    {
+        revFruit.push(fruit[i]);
+    }
+    console.log(revFruit);
+
+    const fullStack = [
+    ['HTML', 'CSS', 'JS', 'React'],
+    ['Node', 'Express', 'MongoDB']
+    ];
+
+    for(let i = 0; i < fullStack.length; i++)
+        for(let j = 0; j < fullStack[i].length; j++)
+            console.log(fullStack[i][j].toUpperCase());
+
+    //Level 3
+    const countriesClone2 = countries;
+    console.log(countriesClone2);
+    sortedCountries = countriesClone2.sort();
+    console.log(sortedCountries);
+
+    console.log(webTechs.sort());
+    console.log(mernStack.sort());
+
+    let land2 = [];
+    countries.forEach(function(country) {
+        if(country.includes('land'))
+            land2.push(country);
+    })
+    land2.length > 0 ? console.log(land2) : 
+        console.log('All these countries are without land');
+    
+    let max2 = 0, index2=0;
+    for(let i=0;i<countries.length;i++)
+    {
+        if(countries[i].length > max2)
+        {
+            max2 = countries[i].length;
+            index2 = i;
+        }
+    }
+    console.log(countries[index2]);
+
+    let char4 =[];
+    countries.forEach(function(country) {
+        if(country.length == 4)
+            char4.push(country);
+    })
+    char4.length > 0 ? console.log(char4) : 
+        console.log('No country found with length 4.');
+    
+    let revCountries = [];
+    countriesClone2.reverse();
+    countriesClone2.forEach(function(country) {
+        revCountries.push(country.toUpperCase());
+    });
+    console.log(revCountries);
+    
+</script>
+</html>

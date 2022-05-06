@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 3 Exercises</h1>
+</body>
+<script>
+    //Level 1
+    let firstName='John', lastName='Doe', country='India', city='Lucknow',
+    age=21, isMarried=false, year=2022;
+    console.log(typeof(firstName)+"\n"+typeof(lastName)+"\n"+typeof(country)+"\n"
+    +typeof(city)+"\n"+typeof(age)+"\n"+typeof(isMarried)+"\n"+typeof(year));
+    
+    console.log(typeof('10')==typeof(10));
+    console.log(typeof(parseInt('9.8'))==typeof(10));
+    
+    console.log(1==1);
+    console.log(1-1==2-2);
+    console.log(1*2==2*1);
+    console.log(1==2);
+    console.log(1-2==2-1);
+    console.log(1/2==2/1);
+
+    console.log(4>3); //true
+    console.log(4>=3); //true 
+    console.log(4<3); //false
+    console.log(4<=3); //false
+    console.log(4==4); //true
+    console.log(4===4); //true
+    console.log(4!=4); //false
+    console.log(4!==4); //false
+    console.log(4!='4'); //false
+    console.log(4=='4'); //true
+    console.log(4==='4'); //false
+    let pyt = 'python';
+    let jar = 'jargon';
+    let pytLength = pyt.length; //6
+    let jarLength = jar.length; //6
+    console.log(pytLength!=jarLength); //false
+
+    console.log(4>3 && 10<12); //true
+    console.log(4>3 && 10>12); //false
+    console.log(4>3 || 10<12); //true
+    console.log(4>3 || 10<12); //true
+    console.log(!(4>3)); //false
+    console.log(!(4<3)); //true
+    console.log(!false); //true
+    console.log(!(4>3 && 10<12)); //false
+    console.log(!(4>3 && 10>12)); //true
+    console.log(!(4==='4')); //true
+    console.log(!(pyt.includes('on') && jar.includes('on'))); //false
+
+    const now = new Date();
+    console.log(now.getFullYear());
+    // counting starts from 0 so add 1
+    console.log(now.getMonth()+1);
+    console.log(now.getDate());
+    console.log(now.getDay());
+    console.log(now.getHours());
+    console.log(now.getMinutes());
+    // the numbers of seconds elapsed from January 1, 1970 to now.
+    console.log(Date.now());
+
+    // const base = prompt('Enter the base of a triangle: ');
+    // const height = prompt('Enter the height of a triangle: ');
+    // const area = base*height*0.5;
+    // console.log(`The area of the triangle is ${area}`);
+
+    // const a = prompt('Enter the first side of the triangle: ');
+    // const b = prompt('Enter the second side of the triangle: ');
+    // const c = prompt('Enter the third side of the triangle: ');
+    // const peri = parseInt(a)+parseInt(b)+parseInt(c);
+    // // const peri = (a*1+b*1+c*1);
+    // console.log(`The perimeter of the triangle is ${peri}`);
+
+    // const l = prompt('Enter the length of a rectangle: ');
+    // const b = prompt('Enter the breadth of a rectangle: ');
+    // const areaRect = l*b;
+    // const periRect = 2*(l*1+b*1);
+    // console.log(`Area of rectangle ${areaRect} and perimeter is ${periRect}`);
+    
+    // const r = prompt('Enter the radius of the circle: ');
+    // const areaCir = 3.14*r*r;
+    // const circum = 2*3.14*r;
+    // console.log(`Radius of circle ${areaCir} and circumference is ${circum}`)
+
+    // in equation y=2x-2 (y=mx+c)
+    // m is slope, c is y-intercept, -c/m is x-intercept
+    console.log('In equation y=2x-2 the slope is 2, y-intercept is -2, x-intercept is 1');
+
+    // point1 = (2,2) point2 = (6,10)
+    let x1=2, x2=6, y1=2, y2=10;
+    m = (y2-y1)/(x2-x1);
+    console.log(`Slope is ${m}`);
+
+    console.log(m==2);
+
+    //y=x^2+6x+9
+    console.log(`When x = 0, y = 9`);
+
+    // const hr = prompt('Enter the hours: ');
+    // const rphr = prompt('Enter the rate per hour: ');
+    // console.log(`Weekly earning is `+hr*rphr);
+
+    const name = 'WillSmith';
+    if(name.length > 7)
+        console.log('Long name');
+    else
+        console.log('Short name');
+    
+    let fn = 'John', famn = 'Doe';
+    if(fn.length > famn.length)
+        console.log(`Your first name, ${fn} is longer than your family name, ${famn}`);
+    else
+        console.log(`Your first name, ${fn} is shoretr than your family name, ${famn}`);
+    
+    let myAge = 250, yourAge = 25;
+    let diff = myAge - yourAge;
+    console.log(`I am ${diff} years older than you`);
+
+    // let currYr = now.getFullYear();
+    // let yearBorn = prompt('Enter the year you were born: ');
+    // let diffYr = currYr - yearBorn;
+    // if(diffYr >= 18)
+    //     console.log(`You are ${diffYr}. You are old enough to drive.`);
+    // else
+    // {
+    //     let yearLeft = 18-diffYr;
+    //     console.log(`You are ${diffYr}. You will be allowed to drive after ${yearLeft} years.`);
+    // }
+
+    // const secInOneYear = 31536000;
+    // const lived = prompt('Enter the number of years you have lived: ');
+    // let secLived = secInOneYear*lived;
+    // console.log(`You have lived ${secLived} seconds.`);
+
+    const yr = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+        console.log(`${yr}-${month}-${date} ${hours}:${minutes}`) 
+        console.log(`${date}-${month}-${yr} ${hours}:${minutes}`) 
+        console.log(`${date}/${month}/${yr} ${hours}:${minutes}`) 
+        
+    console.log(`${yr}-${month}-${date} ${hours}:${minutes}`) 
+</script>
+</html>

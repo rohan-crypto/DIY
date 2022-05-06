@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 4 Exercises</h1>
+</body>
+<script>
+    // Level 1
+
+    // let inpAge = prompt("Enter your age: ");
+    let inpAge = 20;
+    if(inpAge>=18)
+        console.log('You are old enough to drive.');
+    else
+        console.log('You are left with '+(18-inpAge)+' years to drive.');
+    
+    let myAge = 20;
+    // let yourAge = prompt("Enter your age: ");
+    let yourAge = 10;
+    if(myAge>yourAge)
+        console.log('I am '+(myAge-yourAge)+' years older than you.');
+    else if(myAge<yourAge)
+        console.log('You are '+(yourAge-myAge)+' years older than me.');
+    else
+        console.log('We are of same age.');
+    
+    let a=2,b=3;
+    if(a>b)
+        console.log(`${a} is greater than ${b}.`);
+    else
+        console.log(`${b} is greater than ${a}.`);
+    
+    a>b ? console.log(`${a} is greater than ${b}.`) : 
+        console.log(`${b} is greater than ${a}.`);
+
+    // let n = prompt('Enter a number: ');
+    let n = 10;
+    if(n%2==0)
+        console.log(`${n} is an even number.`);
+    else
+        console.log(`${n} is an odd number.`);
+
+    //Level 2
+    
+    // let marks = prompt('Enter your marks: ');
+    let marks = 90;
+    if(marks>=90 && marks<=100) console.log('A');
+    else if(marks>=70 && marks<=89) console.log('B');
+    else if(marks>=60 && marks<=69) console.log('C');
+    else if(marks>=50 && marks<=59) console.log('D');
+    else console.log('F');
+
+    // let month = prompt('Enter a month: ');
+    let month = 'January';
+    if(month=='September' || month=='October' || month=='November')
+        console.log('Autumn Season');
+    else if(month=='December' || month=='January' || month=='February')
+        console.log('Winter Season');
+    else if(month=='March' || month=='April' || month=='May')
+        console.log('Spring Season');
+    else
+        console.log('Summer Season');
+
+    // let day = prompt('Enter day: ').toLowerCase();
+    let day = 'Friday'.toLowerCase();
+    day = day.replace(day.charAt(0), day.charAt(0).toUpperCase());
+    if(day=='Saturday' || day=='Sunday')
+    console.log(`${day} is a weekend.`);
+    else
+    console.log(`${day} is a working day.`);
+    
+    //Level 3
+    // let mon = prompt('Enter a month: ').toLowerCase();
+    let mon = 'January'.toLowerCase();
+    mon = mon.replace(mon.charAt(0), mon.charAt(0).toUpperCase());
+    if(mon=='January'||mon=='March'||mon=='May'||mon=='July'||
+        mon=='August'||mon=='October'||mon=='December')
+        console.log(`${mon} has 31 days.`);
+    else if(mon=='April'||mon=='June'||mon=='September'||mon=='November')
+        console.log(`${mon} has 30 days.`)
+    else
+        console.log(`February has 28 days.`);
+    
+    // let mont = prompt('Enter a month: ').toLowerCase();
+    // let yr = prompt('Enter a year: ');
+    let mont = 'February'.toLowerCase();
+    let yr = 2022;
+    mont = mont.replace(mont.charAt(0), mont.charAt(0).toUpperCase());
+    if(mont=='January'||mont=='March'||mont=='May'||mont=='July'||
+        mont=='August'||mont=='October'||mont=='December')
+        console.log(`${mont} has 31 days.`);
+    else if(mont=='April'||mont=='June'||mont=='September'||mont=='November')
+        console.log(`${mont} has 30 days.`)
+    else
+    {
+        // for a leap yr 
+        if((yr%4==0 && yr%100!=0) || (yr%400==0))
+            console.log(`February has 29 days.`);
+        else
+            console.log(`February has 28 days`);
+    }
+
+</script>
+</html>

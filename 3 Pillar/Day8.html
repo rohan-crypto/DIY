@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center" >Day 8 Exercises</h1>
+</body>
+<script>
+    //Level 1
+    let dog = {};
+    console.log(dog);
+    dog = {
+        name: 'Neo',
+        legs: 4,
+        color: 'white',
+        age: 8,
+        bark: function(){
+            return `woof woof`;
+        }
+    }
+    console.log(dog.name);
+    console.log(dog.legs);
+    console.log(dog.color);
+    console.log(dog.age);
+    console.log(dog.bark());
+
+    dog.breed = 'Husky';
+    // dog.getDogInfo = 'Pet Dog';
+    dog.getDogInfo = function(){
+        return dog;
+    }
+    console.log(dog.breed);
+    console.log(dog.getDogInfo());
+
+    //Level 2
+const users = {
+  Alex: {
+    email: 'alex@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    age: 20,
+    isLoggedIn: false,
+    points: 30
+  },
+  Asab: {
+    email: 'asab@asab.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 25,
+    isLoggedIn: false,
+    points: 50
+  },
+  Brook: {
+    email: 'daniel@daniel.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+    age: 30,
+    isLoggedIn: true,
+    points: 50
+  },
+  Daniel: {
+    email: 'daniel@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  John: {
+    email: 'john@john.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+    age: 20,
+    isLoggedIn: true,
+    points: 50
+  },
+  Thomas: {
+    email: 'thomas@thomas.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  Paul: {
+    email: 'paul@paul.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  }
+};
+// console.log(Object.keys(users));
+// console.log(Object.values(users));
+// console.log(users.Paul.skills.length);
+let max=0,l=0,ans,loggedIn=0,points=0;
+const mern = [];
+for(const key of Object.keys(users))
+{
+    // here key variable stores key and users[key] stores values
+    l = users[key].skills.length;
+    if(l>max)
+    {
+        max=l;
+        ans=key;
+    }
+    // console.log(key+"=>"+users[key].skills.length);
+    if(users[key].isLoggedIn)
+        loggedIn++;
+    if(users[key].points >= 50)
+        points++;
+    if((users[key].skills.includes('MongoDB')) && (users[key].skills.includes('Node')) &&
+    (users[key].skills.includes('React')) && (users[key].skills.includes('Express')))
+        mern.push(key);
+}
+console.log("User with most skills is "+ans);
+console.log("Number of logged in users "+loggedIn);
+console.log("Number of users with greater than or equal to 50 points "+points);
+console.log("Mern stack developers: "+mern);
+
+// creating a new key which is an object
+let Rohan = {
+    email: 'rohan@rohan.com',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    age: 20,
+    isLoggedIn: false,
+    points: 30
+}
+// copying users object to new object without modifying the original users object
+let copyUsers = Object.assign({}, users);
+// setting new key in copied object 
+copyUsers = {...copyUsers, Rohan};
+console.log(copyUsers);
+
+console.log(Object.keys(users));
+
+console.log(Object.values(users));
+
+//Level 3
+
+const personAccount = {
+  firstName: 'John',
+  lastName: 'Doe',
+  incomes: {
+    income: [8000, 10000, 20000, 40000],
+    description: ['bonus','stocks','overtime','salary']
+  },
+  expenses: {
+    expense: [10000, 5000, 10000, 3000],
+    description: ['tax','groceries','fees','tution']
+  },
+  totalIncome: function() {
+    return `Total income 78000`;
+  },
+  totalExpense: function() {
+    return `Total expenses 28000`;
+  },
+  acountInfo: function() {
+    return `Personal account`;
+  },
+  addIncome: function() {
+    return `10000 income pending`;
+  },
+  addExpense: function() {
+    return `10000 expense pending`;
+  },
+  accountBalance: function() {
+    return `50000 account balance`;
+  }
+};
+console.log(personAccount);
+
+const users2 = [
+    {
+        _id: 'ab12ex',
+        username: 'Alex',
+        email: 'alex@alex.com',
+        password: '123123',
+        createdAt:'08/01/2020 9:00 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'fg12cy',
+        username: 'Asab',
+        email: 'asab@asab.com',
+        password: '123456',
+        createdAt:'08/01/2020 9:30 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'zwf8md',
+        username: 'Brook',
+        email: 'brook@brook.com',
+        password: '123111',
+        createdAt:'08/01/2020 9:45 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'eefamr',
+        username: 'Martha',
+        email: 'martha@martha.com',
+        password: '123222',
+        createdAt:'08/01/2020 9:50 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'ghderc',
+        username: 'Thomas',
+        email: 'thomas@thomas.com',
+        password: '123333',
+        createdAt:'08/01/2020 10:00 AM',
+        isLoggedIn: false
+    }
+  ];
+
+// console.log(users2);
+let alreadyExists = false;
+let inputUsername, inputPass;
+function signUp() {
+  alert('Welcome to signUp');
+  inputUsername = prompt('Enter your username: ');
+  inputPass = prompt('Enter your 6-digit password: ');
+  while(inputPass.length != 6)
+  {
+    alert('Please enter a 6-digit password');
+    inputPass = prompt('Enter your 6-digit password: ');
+  }
+  for(let i=0;i<users2.length;i++) {
+    if(users2[i].username == inputUsername.trim() && 
+      users2[i].password == inputPass)
+    {
+      alreadyExists= true;
+      break;
+    }
+  }
+  if(alreadyExists)
+    alert('Account already exists');
+  else
+  {
+    let newUser = {
+        username: `${inputUsername}`,
+        password: `${inputPass}`,
+      };
+      users2.push(newUser);
+    console.log("Modified users are:");
+    console.log(users2);
+  }
+}
+// signUp();
+
+let alreadyPresent = false;
+let inpUsername, inpPass, attempt=2;
+function signIn() {
+  alert('Welcome to signIn');
+  inpUsername = prompt('Enter your username: ');
+  inpPass = prompt('Enter your 6-digit password: ');
+  while(inpPass.length != 6)
+  {
+    alert('Please enter a 6-digit password');
+    inpPass = prompt('Enter your 6-digit password: ');
+  }
+  attempt--;
+  for(let i=0;i<users2.length;i++) {
+    if(users2[i].username == inpUsername.trim() && users2[i].password == inpPass)
+    {
+      alreadyExists= true;
+      break;
+    }
+  }
+  if(alreadyExists)
+  {
+    alert(`Welcome back! ${inpUsername}`);
+    console.log(users2);
+  }
+  else
+  {
+    while(attempt != 0)
+    {
+      alert('Account does not exist. Check your credentials and try again!');
+      attempt--;
+      signIn();
+    }
+    if(attempt == 0)
+      signUp();
+  }
+}
+signIn();
+
+const products = [
+  {
+    _id: 'eedfcf',
+    name: 'mobile phone',
+    description: 'Huawei Honor',
+    price: 200,
+    ratings: [
+      { userId: 'fg12cy', rate: 5 },
+      { userId: 'zwf8md', rate: 4.5 }
+    ],
+    likes: []
+  },
+  {
+    _id: 'aegfal',
+    name: 'Laptop',
+    description: 'MacPro: System Darwin',
+    price: 2500,
+    ratings: [],
+    likes: ['fg12cy']
+  },
+  {
+    _id: 'hedfcg',
+    name: 'TV',
+    description: 'Smart TV:Procaster',
+    price: 400,
+    ratings: [{ userId: 'fg12cy', rate: 5 }],
+    likes: ['fg12cy']
+  }
+];
+
+let sum=0;
+function rateProduct() {
+  for(let i=0;i<products.length;i++)
+  { 
+    for(let j=0;j<products[i].ratings.length;j++)
+    {
+      sum+=products[i].ratings[j].rate;
+    }
+    console.log('Rating of '+products[i].description+' is '+sum);
+    sum=0;
+  }
+}
+rateProduct();
+
+let total=0,avg=0;
+function averageRating(){
+  for(let i=0;i<products.length;i++)
+  {
+    for(let j=0;j<products[i].ratings.length;j++)
+    {
+      sum+=products[i].ratings[j].rate;
+    }
+    if(products[i].ratings.length == 0)
+      avg = 0;
+    else
+      avg = sum/products[i].ratings.length;
+    console.log('Average Rating of '+products[i].description+' is '+avg);
+    sum=0;
+  }
+}
+averageRating();
+
+function likeProduct(){
+  for(let i=0;i<products.length;i++)
+  {
+    if(products[i].likes.length != 0)
+    { 
+      // make its length zero i.e. remove all likes
+      products[i].likes.splice(0,products[i].likes.length);
+    }
+    else
+    {
+      for(let j=0;j<products[i].ratings.length;j++)
+      {
+        products[i].likes.push(products[i].ratings[j].userId);
+      }
+    }
+  }
+  console.log('Modified likes of products are:');
+  for(let k=0;k<products.length;k++)
+  {
+    if(products[k].likes.length != 0)
+      console.log('Likes of '+products[k].description+' are '+products[k].likes);
+    else
+      console.log('Likes of '+products[k].description+' are none');
+  }
+}
+likeProduct();
+</script>
+</html>
